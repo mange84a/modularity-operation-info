@@ -1,0 +1,20 @@
+{
+    "name": "mange84a/modularity-operationinfo",
+    "description": "Show operational information.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Magnus Andersson @ EF",
+            "email": "kontakt@magnus-andersson.nu"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mange84a/modularity-operationinfo.git"
+        }
+    ]
+}
