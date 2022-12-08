@@ -25,7 +25,7 @@ define('OPERATIONINFO_VIEW_PATH', OPERATIONINFO_PATH . 'views/');
 define('OPERATIONINFO_MODULE_VIEW_PATH', plugin_dir_path(__FILE__) . 'source/php/Module/views');
 define('OPERATIONINFO_MODULE_PATH', OPERATIONINFO_PATH . 'source/php/Module/');
 
-load_plugin_textdomain('modularity-operationinfo', false, plugin_basename(dirname(__FILE__)) . '/languages');
+load_plugin_textdomain('modularity-operationinfo', false, plugin_basename(dirname(__FILE__)) . '/lang');
 
 require_once OPERATIONINFO_PATH . 'source/php/Vendor/Psr4ClassLoader.php';
 require_once OPERATIONINFO_PATH . 'Public.php';

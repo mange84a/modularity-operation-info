@@ -1,0 +1,140 @@
+# Copyright (C) 2022 Magnus Andersson @ EF
+# This file is distributed under the MIT.
+msgid ""
+msgstr ""
+"Project-Id-Version: Operation Information 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/modularity-operation-info\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2022-12-08T15:29:01+01:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.6.0\n"
+"X-Domain: modularity-operationinfo\n"
+
+#. Plugin Name of the plugin
+#: source/php/Admin/Settings.php:19
+msgid "Operation Information"
+msgstr "Driftinformation"
+
+#. Plugin URI of the plugin
+msgid "https://github.com/mange84a/modularity-operationinfo"
+msgstr ""
+
+#. Description of the plugin
+#: source/php/Module/Operationinfo.php:20
+msgid "Show operational information."
+msgstr "Visa driftinformation"
+
+#. Author of the plugin
+msgid "Magnus Andersson @ EF"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://github.com/mange84a"
+msgstr ""
+
+#: source/php/AcfFields/php/operation-infos.php:8
+#: source/php/App.php:20
+msgid "Operation information"
+msgstr "Driftinformation"
+
+#: source/php/AcfFields/php/operation-infos.php:12
+msgid "Operation start"
+msgstr "Driftinformation start"
+
+#: source/php/AcfFields/php/operation-infos.php:30
+msgid "Operation end"
+msgstr "Driftinformation slut"
+
+#: source/php/AcfFields/php/operationinfo-module.php:8
+msgid "Display Operation information"
+msgstr "Visa driftinformation"
+
+#: source/php/AcfFields/php/operationinfo-module.php:12
+msgid "Show active"
+msgstr "Visa aktiva"
+
+#: source/php/AcfFields/php/operationinfo-module.php:32
+msgid "Active label"
+msgstr "Titel för aktiva"
+
+#: source/php/AcfFields/php/operationinfo-module.php:60
+msgid "Show planed"
+msgstr "Visa planerade"
+
+#: source/php/AcfFields/php/operationinfo-module.php:80
+msgid "Planed label"
+msgstr "Titel för planerade"
+
+#: source/php/AcfFields/php/operationinfo-module.php:108
+msgid "Show finished"
+msgstr "Visa slutförda"
+
+#: source/php/AcfFields/php/operationinfo-module.php:128
+msgid "Finished label"
+msgstr "Titel för slutförda"
+
+#: source/php/Admin/Settings.php:20
+msgid "Operation Information Settings"
+msgstr ""
+
+#: source/php/App.php:19
+msgid "Operation Info"
+msgstr "Driftinfo"
+
+#: source/php/App.php:19
+msgid "Operation info"
+msgstr "Driftinfo"
+
+#: source/php/Entity/PostType.php:46
+#: source/php/Entity/PostType.php:47
+msgid "Add new %s"
+msgstr ""
+
+#: source/php/Entity/PostType.php:48
+msgid "Edit %s"
+msgstr ""
+
+#: source/php/Entity/PostType.php:49
+msgid "New %s"
+msgstr ""
+
+#: source/php/Entity/PostType.php:50
+msgid "View %s"
+msgstr ""
+
+#: source/php/Entity/PostType.php:51
+msgid "Search %s"
+msgstr ""
+
+#: source/php/Entity/PostType.php:52
+msgid "No %s found"
+msgstr ""
+
+#: source/php/Entity/PostType.php:53
+msgid "No %s found in trash"
+msgstr ""
+
+#: source/php/Entity/PostType.php:54
+msgid "Parent %s:"
+msgstr ""
+
+#: source/php/Module/Operationinfo.php:18
+#: source/php/Module/Operationinfo.php:19
+msgid "Operationinfo"
+msgstr "Driftinfo"
+
+#: source/php/Module/Operationinfo.php:62
+msgid "No active operations found."
+msgstr "Inga aktiva driftproblem"
+
+#: source/php/Module/Operationinfo.php:63
+msgid "No planed operations found."
+msgstr "Inga planerade driftstopp"
+
+#: source/php/Module/Operationinfo.php:64
+msgid "No finished operations found."
+msgstr "Inga slutförda driftproblem"

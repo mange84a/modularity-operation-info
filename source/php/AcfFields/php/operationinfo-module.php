@@ -84,7 +84,55 @@
             'conditional_logic' => array(
                 0 => array(
                     0 => array(
-                        'field' => 'field_63907c1155d47',
+                        'field' => 'field_63908f2ef8119',
+                        'operator' => '==',
+                        'value' => '1',
+                    ),
+                ),
+            ),
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'maxlength' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+        ),
+        4 => array(
+            'key' => 'field_6391d1749e392',
+            'label' => __('Show finished', 'modularity-operationinfo'),
+            'name' => 'show_finished',
+            'aria-label' => '',
+            'type' => 'true_false',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'message' => '',
+            'default_value' => 0,
+            'ui_on_text' => '',
+            'ui_off_text' => '',
+            'ui' => 1,
+        ),
+        5 => array(
+            'key' => 'field_6391d1819e394',
+            'label' => __('Finished label', 'modularity-operationinfo'),
+            'name' => 'finished_label',
+            'aria-label' => '',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => array(
+                0 => array(
+                    0 => array(
+                        'field' => 'field_6391d1749e392',
                         'operator' => '==',
                         'value' => '1',
                     ),

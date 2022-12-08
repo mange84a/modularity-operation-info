@@ -14,5 +14,5 @@
     @endif
 
     @include('partials.list')
-
+    
 @endcard
