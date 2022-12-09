@@ -16,7 +16,7 @@ class App
         add_action('plugins_loaded', array($this, 'registerModule'));
         
         //Register post type
-        new \ModularityLocalEvents\Entity\PostType(__('Operation Info', 'modularity-operationinfo'), __('Operation info', 'modularity-operationinfo'), 'operation-infos', array(
+        new \Operationinfo\Entity\PostType(__('Operation Info', 'modularity-operationinfo'), __('Operation info', 'modularity-operationinfo'), 'operation-infos', array(
             'description' => __('Operation information', 'modularity-operationinfo'),
             'menu_icon' => 'dashicons-list-view',
             'public' => true,
@@ -27,7 +27,7 @@ class App
             'hierarchical' => false,
             'exclude_from_search' => false,
             'rewrite' => array(
-                'slug' => 'local-events',
+                'slug' => 'driftinfo',
                 'with_front' => false
             ),
             'taxonomies' => array(),
