@@ -3,21 +3,23 @@
         @if($showActive)
             <button role="tab" class="c-tabs__button" aria-controls="active_panel" aria-expanded="true" js-expand-button>
                 <span class="c-tabs__button-wrapper" tabindex="-1">
-                    {{$activeLabel}}
+                    {{$activeLabel}} <span class="c-tag c-tag--default">{{$totalActiveOperations}}</span>
                 </span>
             </button>
         @endif
         @if($showPlaned)
             <button role="tab" class="c-tabs__button" aria-controls="planed_panel" aria-expanded="false" js-expand-button>
                 <span class="c-tabs__button-wrapper" tabindex="-1">
-                    {{$planedLabel}}
+                    {{$planedLabel}} <span class="c-tag c-tag--default">{{$totalPlanedOperations}}</span>
+ 
                 </span>
             </button>
         @endif
         @if($showFinished)
             <button role="tab" class="c-tabs__button" aria-controls="finished_panel" aria-expanded="false" js-expand-button>
                 <span class="c-tabs__button-wrapper" tabindex="-1">
-                    {{$finishedLabel}}
+                    {{$finishedLabel}} <span class="c-tag c-tag--default">{{$totalFinishedOperations}}</span>
+
                 </span>
             </button>
         @endif
@@ -30,7 +32,7 @@
                         @collection__item([
                             'link' => $operationinfo->link,
                             'icon' => 'warning_amber',
-                            'classList' => ['u-color__bg--warning', 'u-margin__bottom--1']
+                            'classList' => ['u-margin__bottom--1']
                         ])
                         
                             @include('partials.cardcontent')
@@ -38,11 +40,9 @@
                     @endforeach
                 @endcollection
             @else
-                <div class="u-color__bg--info u-padding--2">
-                    @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 u-color__text--lightest']])
-                        {{ $lang->noActive }}
-                    @endtypography
-                </div>
+                @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 no-operations-text']])
+                    {{ $lang->noActive }}
+                @endtypography
             @endif
         </div>
     @endif
@@ -54,7 +54,7 @@
                         @collection__item([
                             'link' => $operationinfo->link,
                             'icon' => 'schedule',
-                            'classList' => ['u-color__bg--lighter', 'u-margin__bottom--1']
+                            'classList' => ['u-margin__bottom--1']
 
                         ])
                             @include('partials.cardcontent')
@@ -63,11 +63,9 @@
                     @endforeach
                 @endcollection
             @else
-                <div class="u-color__bg--info u-padding--2">
-                    @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 u-color__text--lightest']])
-                        {{ $lang->noPlaned }}
-                    @endtypography
-                </div>
+                @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 no-operations-text']])
+                    {{ $lang->noPlaned }}
+                @endtypography
             @endif
         </div>
     @endif
@@ -79,7 +77,7 @@
                         @collection__item([
                             'link' => $operationinfo->link,
                             'icon' => 'check_circle_outline',
-                            'classList' => ['u-color__bg--success', 'u-margin__bottom--1']
+                            'classList' => ['u-margin__bottom--1']
                         ])
                             @include('partials.cardcontent')
                         
@@ -87,11 +85,9 @@
                     @endforeach
                 @endcollection
             @else
-                <div class="u-color__bg--info u-padding--2">
-                    @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 u-color__text--lightest']])
-                        {{ $lang->noFinished }}
-                    @endtypography
-                </div>
+                @typography(['variant' => 'meta', 'element' => 'p', 'classList' => ['u-margin--0 no-operations-text']])
+                    {{ $lang->noFinished }}
+                @endtypography
             @endif
         </div>
     @endif

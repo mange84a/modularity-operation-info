@@ -216,7 +216,16 @@ class Operationinfo extends \Modularity\Module
      */
     public function style()
     {
-        //No styles
+        //Register custom css
+        wp_register_style(
+            'modularity-operationinfo',
+            OPERATIONINFO_URL . '/dist/' . CacheBust::name('css/modularity-operationinfo.css'),
+            null,
+            '1.0.0'
+        );
+
+        //Enqueue
+        wp_enqueue_style('modularity-operationinfo');
     }
 
     /**

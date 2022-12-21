@@ -1,1 +1,19 @@
-.modularity-mod-operationinfo {}
+.modularity-mod-operationinfo {
+    #active_panel {
+        .c-collection__item {
+            background-color: var(--color-warning-light);
+        }
+    }
+    
+    #planed_panel {
+        .c-collection__item {
+            background-color: var(--color-info-light);
+        }
+    }
+    
+    #finished_panel {
+        .c-collection__item {
+            background-color: var(--color-success-light);
+        }
+    }
+}
