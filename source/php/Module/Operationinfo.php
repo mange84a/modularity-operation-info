@@ -35,24 +35,23 @@ class Operationinfo extends \Modularity\Module
         
         //Archive link
         $data['archiveLink'] = get_post_type_archive_link('operation-infos');
-        
         //Get active is used 
         if($data['showActive']) { 
-            $activeOperations = $this->getActiveOperations();
+            $activeOperations = $this->getActiveOperations($data['driftCategory']);
             $data['activeOperations'] = $this->formatOperationInfos($activeOperations['posts']);
             $data['totalActiveOperations'] = $activeOperations['postcount'];
         }   
 
         //Get planed if used
         if($data['showPlaned']) { 
-            $planedOperations = $this->getPlanedOperations();
+            $planedOperations = $this->getPlanedOperations($data['driftCategory']);
             $data['planedOperations'] = $this->formatOperationInfos($planedOperations['posts']);
             $data['totalPlanedOperations'] = $planedOperations['postcount'];
         } 
 
         //Get finished if used
         if($data['showFinished']) { 
-            $finishedOperations = $this->getFinishedOperations();
+            $finishedOperations = $this->getFinishedOperations($data['driftCategory']);
             $data['finishedOperations'] = $this->formatOperationInfos($finishedOperations['posts']);
             $data['totalFinishedOperations'] = $finishedOperations['postcount'];
         } 
@@ -73,13 +72,23 @@ class Operationinfo extends \Modularity\Module
      * @return array
      * Posts array including all matching items
      */
-    private function getActiveOperations() {
-
+    private function getActiveOperations($category_id = null) {
+       if(!empty($category_id)) {
+            $tax = [[ 
+                'taxonomy' => 'operation-infos_category',
+                'field' => 'term_id',
+                'terms' => [$category_id],
+                'operator' => 'IN'
+            ]];
+        } else {
+            $tax = [];
+        }
         $query = new \WP_Query(array(
             'post_type' => 'operation-infos',
             'posts_per_page' => -1,
             'post_status' => 'publish',
             'suppress_filters' => true,
+            'tax_query' => $tax,
             'meta_query' => [
                 'relation' => 'AND',
                 [ 
@@ -129,8 +138,17 @@ class Operationinfo extends \Modularity\Module
      * @return array
      * Posts array including all matching items
      */
-    private function getPlanedOperations() {
-
+    private function getPlanedOperations($category_id = null) {
+        if(!empty($category_id)) {
+            $tax = [[ 
+                'taxonomy' => 'operation-infos_category',
+                'field' => 'term_id',
+                'terms' => $category_id,
+                'operator' => 'IN'
+            ]];
+        } else {
+            $tax = [];
+        }
         $query = new \WP_Query(array(
             'post_type' => 'operation-infos',
             'posts_per_page' => -1,
@@ -139,7 +157,8 @@ class Operationinfo extends \Modularity\Module
             'meta_key' => 'operation_start',
             'meta_value' => date('Y-m-d H:i:s'),
             'meta_compare' => '>',
-            'meta_type' => 'DATE'
+            'meta_type' => 'DATE',
+            'tax_query' => $tax
         ));
 
         if(!is_wp_error($query)) {
@@ -158,18 +177,40 @@ class Operationinfo extends \Modularity\Module
      * @return array
      * Posts array including all matching items
      */
-    private function getFinishedOperations() {
+    private function getFinishedOperations($category_id = null) {
+        if(!empty($category_id)) {
+            $tax = [[ 
+                'taxonomy' => 'operation-infos_category',
+                'field' => 'term_id',
+                'terms' => $category_id,
+                'operator' => 'IN'
+            ]];
+        } else {
+            $tax = [];
+        }
 
         $query = new \WP_Query(array(
             'post_type' => 'operation-infos',
             'posts_per_page' => -1,
             'post_status' => 'publish',
             'suppress_filters' => true,
-            'meta_key' => 'operation_end',
-            'meta_value' => date('Y-m-d H:i:s'),
-            'meta_compare' => '<',
-            'meta_type' => 'DATE'
+            'tax_query' => $tax,
+            'meta_query' => [
+                'relation' => 'AND',
+                [ 
+                    'key' => 'operation_end',
+                    'value' => date('Y-m-d H:i:s'),
+                    'compare' => '<',
+                    'type' => 'DATE'
+                ],
+                [
+                    'key' => 'operation_end',
+                    'value' => '',
+                    'compare' => '!=',
+                ]  
+            ]
         ));
+
 
         if(!is_wp_error($query)) {
             return [

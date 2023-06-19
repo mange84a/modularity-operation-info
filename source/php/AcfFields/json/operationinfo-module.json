@@ -145,6 +145,42 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_648ac2b50cfb4",
+            "label": "Kategori",
+            "name": "drift_category",
+            "aria-label": "",
+            "type": "acfe_taxonomy_terms",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": [
+                "operation-infos_category"
+            ],
+            "allow_terms": "",
+            "allow_level": "",
+            "field_type": "select",
+            "default_value": [],
+            "return_format": "id",
+            "ui": 1,
+            "allow_null": 1,
+            "placeholder": "",
+            "search_placeholder": "",
+            "multiple": 0,
+            "ajax": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "choices": [],
+            "layout": "",
+            "toggle": 0,
+            "allow_custom": 0,
+            "other_choice": 0
         }
     ],
     "location": [

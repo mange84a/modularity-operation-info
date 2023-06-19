@@ -6,6 +6,8 @@ use Operationinfo\Helper\CacheBust;
 
 class App
 {
+    private $postType = 'operation-infos';
+
     public function __construct()
     {
 
@@ -37,6 +39,7 @@ class App
 
         // Add view paths
         add_filter('Municipio/blade/view_paths', array($this, 'addViewPaths'), 1, 1);
+        add_filter('Municipio/viewData', array($this, 'singleViewData'));
     }
 
     /**
@@ -70,4 +73,32 @@ class App
 
         return $array;
     }
+    
+    public function singleViewData($data)                                                                                                                                                                                                                                             
+    {
+        // Bail if not drift
+        if (get_post_type() !== $this->postType && !is_archive()) {
+            return $data;
+        }
+
+        global $post;
+        $operation      = get_fields($post);
+        //Check stats
+        $now = date('Y-m-d H:i:s');
+        $status = '';
+        if($operation['operation_start'] > $now) {
+            $status = 'planned';
+        } else {
+            if($operation['operation_end'] < $now && !empty($operation['operation_end'])) {
+                $status = 'ended';
+            } else {
+                $status = 'live';
+            }
+        } 
+
+        $data['operation'] = $operation;
+        $data['status'] = $status;
+        return $data;
+    }
+
 }

@@ -58,6 +58,16 @@ class PostType
         $this->args['labels'] = $labels;
 
         register_post_type($this->slug, $this->args);
+
+        register_taxonomy( $this->slug . "_category", array( $this->slug ), [
+            "labels" => ["name" => __('Kategori', 'modularity-operationinfo')],
+            'public' => true,
+            "hierarchical" => true,
+            'show_ui' => true, 
+            'show_admin_column' => true, 
+            'show_in_nav_menus' => true, 
+            'show_tagcloud' => true,
+        ]); 
         return $this->slug;
     }
 
